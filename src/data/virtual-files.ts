@@ -1,4 +1,5 @@
 import type { VirtualFile } from "@/types/system";
+import { profile } from "@/config/profile";
 
 export const virtualFiles: VirtualFile[] = [
   {
@@ -42,8 +43,28 @@ export const virtualFiles: VirtualFile[] = [
     name: "contact.json",
     language: "json",
     content: {
-      ru: '{\n  "name": "Yeldo",\n  "location": "Almaty, Kazakhstan",\n  "github": "https://github.com/TheYeldo",\n  "telegram": "@Yeldomr",\n  "email": null\n}',
-      en: '{\n  "name": "Yeldo",\n  "location": "Almaty, Kazakhstan",\n  "github": "https://github.com/TheYeldo",\n  "telegram": "@Yeldomr",\n  "email": null\n}',
+      ru: JSON.stringify(
+        {
+          name: profile.name,
+          location: profile.location,
+          github: `https://github.com/${profile.githubUsername}`,
+          telegram: profile.telegram,
+          email: profile.email,
+        },
+        null,
+        2,
+      ),
+      en: JSON.stringify(
+        {
+          name: profile.name,
+          location: profile.location,
+          github: `https://github.com/${profile.githubUsername}`,
+          telegram: profile.telegram,
+          email: profile.email,
+        },
+        null,
+        2,
+      ),
     },
   },
   {

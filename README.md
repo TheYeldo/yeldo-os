@@ -214,7 +214,7 @@ Automated tests cover terminal parsing, window state transitions, and external G
 
 ## Known limitations
 
-- Email, education, availability, resume, and project media remain explicit placeholders until verified content is supplied.
+- Education, availability, resume, and project media remain explicit placeholders until verified content is supplied.
 - GitHub pinned repositories and a reliable lifetime contribution total are not available from the unauthenticated REST endpoints used here, so neither is fabricated.
 - The contact app uses real direct links and copy actions; it does not ship a non-functional form.
 - The service worker provides a small offline navigation fallback. It is not a full offline mirror and deliberately avoids aggressive asset/API caching.
@@ -223,7 +223,7 @@ Automated tests cover terminal parsing, window state transitions, and external G
 
 ## Roadmap
 
-- Add verified education, availability, email, and resume content.
+- Add verified education, availability, and resume content.
 - Add licensed screenshots and optional video for project case studies.
 - Add production E2E tests to CI across Chromium and mobile emulation.
 - Add optional GitHub GraphQL pinned-repository support when a server token is configured.

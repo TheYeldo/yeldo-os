@@ -1,5 +1,6 @@
 import { terminalDirectories } from "@/data/terminal-commands";
 import { virtualFiles } from "@/data/virtual-files";
+import { profile } from "@/config/profile";
 import type { AppId, ThemeId } from "@/types/system";
 import type { Locale } from "@/i18n/routing";
 
@@ -134,7 +135,10 @@ export function executeTerminal(
     case "github":
       return { lines: [t("github")], appToOpen: "github" };
     case "contact":
-      return { lines: t("contact").split("\n"), appToOpen: "contact" };
+      return {
+        lines: t("contact", { email: profile.email ?? "—" }).split("\n"),
+        appToOpen: "contact",
+      };
     case "history":
       return {
         lines: context.history.length

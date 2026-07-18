@@ -184,6 +184,22 @@ export function CommandPalette() {
           );
         },
       },
+      {
+        id: "action:email",
+        type: "contact",
+        groupKey: "contacts",
+        title: t("copyEmail"),
+        subtitle: profile.email ?? "",
+        keywords: ["copy", "contact", "email", "mail"],
+        run: async () => {
+          if (!profile.email) return;
+          const success = await copyText(profile.email);
+          notify(
+            success ? "copied" : "copyFailed",
+            success ? "success" : "warning",
+          );
+        },
+      },
       ...(["graphite", "oled", "midnight", "light"] as ThemeId[]).map(
         (theme) => ({
           id: `action:theme:${theme}`,

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { DesktopShell } from "@/components/desktop/desktop-shell";
+import { profile } from "@/config/profile";
 import type { Locale } from "@/i18n/routing";
 
 export async function generateMetadata({
@@ -53,15 +54,16 @@ export default async function PortfolioPage({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Yeldo",
-    jobTitle: "Frontend Developer",
+    name: profile.name,
+    jobTitle: profile.role,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Almaty",
       addressCountry: "KZ",
     },
-    url: "https://theyeldo.github.io/portfolio/",
-    sameAs: ["https://github.com/TheYeldo", "https://t.me/Yeldomr"],
+    url: profile.portfolioUrl,
+    email: profile.email ? `mailto:${profile.email}` : undefined,
+    sameAs: profile.socialLinks.map((link) => link.url),
   };
 
   return (
