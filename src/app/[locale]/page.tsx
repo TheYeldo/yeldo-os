@@ -27,12 +27,18 @@ export async function generateMetadata({
       url: `/${locale}`,
       images: [
         {
-          url: "/opengraph-image",
+          url: `/${locale}/opengraph-image`,
           width: 1200,
           height: 630,
           alt: "YeldoOS browser desktop",
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+      images: [`/${locale}/opengraph-image`],
     },
   };
 }
